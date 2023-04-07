@@ -23,7 +23,7 @@ body {
 
 p {
   margin-bottom: 0;
-  padding: 0.5vw;
+  /* padding: 0.5vw; */
 }
 
 img {
@@ -90,8 +90,6 @@ img {
   }
 }
 
-
-
  @media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
@@ -138,6 +136,21 @@ main {
 }
 
 /* Modal form */
+
+.success input {
+  border-color: #09c372;
+}
+
+.error input {
+  border-color: #ff3860;
+}
+
+.error {
+  color: #ff3860;
+  font-size: 0.8rem;
+  height: 13px;
+  padding-top: 3px;
+}
 
 .button {
   background: #fe142f;
@@ -195,6 +208,9 @@ label {
   display: inline-block;
   margin-bottom: 11px;
 }
+label[for=location] {
+  font-size: 16.6px;
+}
 input {
   padding: 8px;
   border: 0.8px solid #ccc;
@@ -207,6 +223,9 @@ input {
   border-radius: 8px;
   font-size: 20px;
   height: 48px;
+}
+.formData {
+  padding-bottom: 5px;
 }
 .formData[data-error]::after {
   content: attr(data-error);

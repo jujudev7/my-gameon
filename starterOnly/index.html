@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <title>Reservation</title>
@@ -71,10 +71,8 @@
                   type="text"
                   id="firstname"
                   name="firstname"
-                  minlength="2"
                 />
                 <div class="error"></div>
-                <br>
               </div>
               <div
                 class="formData">
@@ -86,7 +84,6 @@
                   name="lastname"
                 />
                 <div class="error"></div>
-                <br>
               </div>
               <div
                 class="formData">
@@ -98,7 +95,6 @@
                   name="email"
                 />
                 <div class="error"></div>
-                <br>
               </div>
               <div
                 class="formData">
@@ -110,16 +106,17 @@
                   name="birthdate"
                 />
                 <div class="error"></div>
-                <br>
               </div>
               <div
                 class="formData">
                 <label for="nbTournamentsPlayed">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+              <div class="error"></div>
               </div>
-              <p class="text-label">À quel tournoi souhaitez-vous participer cette année ?</p>
+              <!-- <p class="text-label">À quel tournoi souhaitez-vous participer cette année ?</p> -->
               <div
                 class="formData">
+                <label for="location">À quel tournoi souhaitez-vous participer cette année ?</label><br>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -212,7 +209,6 @@
                 type="submit"
                 class="button"
                 value="C'est parti !"
-                id="submit"
               />
             </form>
           </div>
@@ -225,5 +221,6 @@
       </p>
     </footer>
     <script src="modal.js"></script>
+    <script src="form.js"></script>
   </body>
 </html>
