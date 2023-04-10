@@ -1,5 +1,7 @@
 ❌ Ajouter border rouge quand erreur
 ❌ Afficher toutes les erreurs quand on clique sur Submit
+❌ Problème affichage burger
+❌ Logo doit être au top et non au milieu quand burger ouvert
 
 ❌ Toujours commenter le code (décrire chaque fonction et chaque classe, ainsi que les parties du code qui nécessitent plus de détails) ;
 ❌ Tester manuellement les fonctionnalités, les entrées de formulaire et l'affichage responsive.
