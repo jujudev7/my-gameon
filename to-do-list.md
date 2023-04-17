@@ -1,3 +1,5 @@
+❌ Vérifier la Birthdate
+❌ Régler border rouge inputLocations
 ❌ Ajouter border rouge quand erreur
 ❌ Afficher toutes les erreurs quand on clique sur Submit
 ❌ Problème affichage burger
@@ -8,19 +10,24 @@
 
 🪒 ISSUES à régler :
 
+❌ #1 - Fermer la modale, ajouter la fonctionnalité au bouton (x)
+
+❌ Travailler sur un repo GitHub forké ;
+❌ Utiliser des fichiers séparés pour le HTML, le CSS et le JavaScript ;
+
 ❌ #2 - Implémenter entrées du formulaire
 
-✅ (1) Lier les labels aux entrées dans le HTML en utilisant les attributs "for" et "id" dans le code existant. Corriger le code HTML quand nécessaire.
-✅ (2) Utiliser du JavaScript pur (pas de jQuery) pour terminer le formulaire :
+❌  (1) Lier les labels aux entrées dans le HTML en utilisant les attributs "for" et "id" dans le code existant. Corriger le code HTML quand nécessaire.
+❌  (2) Utiliser du JavaScript pur (pas de jQuery) pour terminer le formulaire :
 
 ❌ Le formulaire doit être valide quand l'utilisateur clique sur "Submit"
 Les données doivent être saisies correctement :
-✅ (1) Le champ Prénom a un minimum de 2 caractères / n'est pas vide.
-✅ (2) Le champ du nom de famille a un minimum de 2 caractères / n'est pas vide.
-✅ (3) L'adresse électronique est valide.
-✅ (4) Pour le nombre de concours, une valeur numérique est saisie.
-✅ (5) Un bouton radio est sélectionné.
-✅ (6) La case des conditions générales est cochée, l'autre case est facultative / peut être laissée décochée.
+❌ (1) Le champ Prénom a un minimum de 2 caractères / n'est pas vide.
+❌ (2) Le champ du nom de famille a un minimum de 2 caractères / n'est pas vide.
+❌ (3) L'adresse électronique est valide.
+❌ (4) Pour le nombre de concours, une valeur numérique est saisie.
+❌ (5) Un bouton radio est sélectionné.
+❌ (6) La case des conditions générales est cochée, l'autre case est facultative / peut être laissée décochée.
 ❌ Conserver les données du formulaire (ne pas effacer le formulaire) lorsqu'il ne passe pas la validation.
 
 
@@ -42,7 +49,7 @@ Visualiser et tester l'interface utilisateur dans les dernières versions de Chr
 
 DONE 👌
 
-✅ #1 - Fermer la modale, ajouter la fonctionnalité au bouton (x)
 
-✅ Travailler sur un repo GitHub forké ;
-✅ Utiliser des fichiers séparés pour le HTML, le CSS et le JavaScript ;
+✅
+
+✅
