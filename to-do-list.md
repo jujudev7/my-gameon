@@ -7,13 +7,14 @@
 
 ❌ Toujours commenter le code (décrire chaque fonction et chaque classe, ainsi que les parties du code qui nécessitent plus de détails) ;
 ❌ Tester manuellement les fonctionnalités, les entrées de formulaire et l'affichage responsive.
+❌ Travailler sur un repo GitHub forké ;
+❌ Utiliser des fichiers séparés pour le HTML, le CSS et le JavaScript ;
 
 🪒 ISSUES à régler :
 
-❌ #1 - Fermer la modale, ajouter la fonctionnalité au bouton (x)
 
-❌ Travailler sur un repo GitHub forké ;
-❌ Utiliser des fichiers séparés pour le HTML, le CSS et le JavaScript ;
+
+
 
 ❌ #2 - Implémenter entrées du formulaire
 
@@ -49,7 +50,6 @@ Visualiser et tester l'interface utilisateur dans les dernières versions de Chr
 
 DONE 👌
 
-
-✅
+✅ #1 - Fermer la modale, ajouter la fonctionnalité au bouton (x)
 
 ✅
