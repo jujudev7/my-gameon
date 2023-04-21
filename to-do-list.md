@@ -1,3 +1,10 @@
+  // const regexLettersOnly = /^[a-zA-Z]+$/;
+  
+  // if (isNaN(quantity)) {
+  //   document.querySelector(".quantity-error").innerHTML =
+  //     "Veuillez renseigner un nombre svp";
+  // } 
+  
 ❌ Vérifier la Birthdate
 ❌ Régler border rouge inputLocations
 ❌ Ajouter border rouge quand erreur
@@ -14,7 +21,7 @@
 
 ❌ #2 - Implémenter entrées du formulaire
 
-❌  (1) Lier les labels aux entrées dans le HTML en utilisant les attributs "for" et "id" dans le code existant. Corriger le code HTML quand nécessaire.
+✅  (1) Lier les labels aux entrées dans le HTML en utilisant les attributs "for" et "id" dans le code existant. Corriger le code HTML quand nécessaire.
 
 ❌  (2) Utiliser du JavaScript pur (pas de jQuery) pour terminer le formulaire :
 

@@ -59,10 +59,12 @@
             <form
               name="reserve"
               action="index.html"
-              method="get"
+              method="post"
               id="form"
               onsubmit="return validate();"
+              novalidate
             >
+              <!-- novalidate empêche les messages d'erreur automatiques du navigateur -->
               <div
                 class="formData">
                 <label for="firstname">Prénom</label><br>
@@ -72,7 +74,7 @@
                   id="firstname"
                   name="firstname"
                 /><br>
-                <span class="firstname-error"></span><br>
+                <span class="error-firstname"></span><br>
               </div>
               <div
                 class="formData">
@@ -83,7 +85,7 @@
                   id="lastname"
                   name="lastname"
                 /><br>
-                <span class="lastname-error"></span><br>
+                <span class="error-lastname"></span><br>
               </div>
               <div
                 class="formData">
@@ -94,6 +96,7 @@
                   id="email"
                   name="email"
                 /><br>
+                <span class="error-email"></span><br>
               </div>
               <div
                 class="formData">
@@ -104,11 +107,13 @@
                   id="birthdate"
                   name="birthdate"
                 /><br>
+                <span class="birthdate-error"></span><br>
               </div>
               <div
                 class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <span class="quantity-error"></span><br>
               </div>
               <p class="text-label">À quel tournoi souhaitez-vous participer cette année ?</p>
               <div
@@ -178,7 +183,8 @@
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
                   Portland</label
-                >
+                ><br>
+                <span class="location-error"></span><br>
               </div>
 
               <div
@@ -187,9 +193,10 @@
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
-                  checked
                 />
-                <label class="checkbox2-label" for="checkbox1" required>
+                <!-- checked supprimé  -->
+                <label class="checkbox2-label" for="checkbox1">
+                  <!-- required supprimé -->
                   <span class="checkbox-icon"></span>
                   J'ai lu et j'accepte les conditions d'utilisation.
                 </label>
@@ -200,6 +207,7 @@
                   Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
+                <span class="checkbox1-error"></span><br>
               </div>
               <input
                 class="btn-submit"

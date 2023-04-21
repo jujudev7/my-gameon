@@ -23,7 +23,8 @@ body {
 
 p {
   margin-bottom: 0;
-  padding: 0.5vw;
+  padding-top: 1.2vw;
+  padding-bottom: 0.4vw;
 }
 
 img {
@@ -208,6 +209,18 @@ input {
   font-size: 20px;
   height: 48px;
 }
+/* .text-control.error {
+ border: red;
+}
+.text-control.success {
+  border: green;
+ } */
+.error {
+  border: red;
+ }
+.success {
+   border: green;
+  }
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -232,6 +245,15 @@ input[data-error]::after {
     font-size: 0.4em;
     color: red;
 } */
+
+.error-firstname,
+.error-lastname,
+.error-email {
+  font-size: 0.5em;
+  color: red;
+  transition: 0.3s;
+}
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -329,6 +351,7 @@ input[data-error]::after {
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
+  margin-top: 5px;
   color: #fff;
   cursor: pointer;
   border: 0;
@@ -402,7 +425,7 @@ input[data-error]::after {
 /* custom select end */
 .text-label {
   font-weight: normal;
-  font-size: 16px;
+  font-size: 16.6px;
 }
 .hero-section {
   min-height: 93vh;
