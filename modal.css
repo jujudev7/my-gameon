@@ -248,7 +248,8 @@ input[data-error]::after {
 
 .error-firstname,
 .error-lastname,
-.error-email {
+.error-email,
+.error-birthdate {
   font-size: 0.5em;
   color: red;
   transition: 0.3s;

@@ -53,23 +53,22 @@ const validate = () => {
   const firstName = document.querySelector("#firstname").value.trim();
   const lastName = document.querySelector("#lastname").value.trim();
   const email = document.querySelector("#email").value.trim();
+  const birthdate = document.querySelector("#birthdate").value.trim();
   // const checkbox1 = document.querySelector("#checkbox1");
 
   const errorFirstname = document.querySelector(".error-firstname");
   const errorLastname = document.querySelector(".error-lastname");
   const errorEmail = document.querySelector(".error-email");
+  const errorBirthdate = document.querySelector(".error-birthdate");
 
   const inputFirstname = document.querySelector("#firstname");
   const inputLastname = document.querySelector("#lastname");
   const inputEmail = document.querySelector("#email");
+  const inputBirthdate = document.querySelector("#birthdate");
 
-  // console.log("00000000002: " + errorFirstname)
-  // console.log("00000000002: " + errorLastname)
-  // console.log("00000000003: " + inputFirstname)
-
-  // récupérer l'input
-  // const errorFirstname = document.querySelector("#firstname +.error");
-  // const errorLastname = document.querySelector("#firstname +.error");
+  const dateValue = new Date(birthdate); // on transforme la chaîne de caractères au format ISO 8601 (ex: "2023-04-21" pour le 21 avril 2023) en un objet Date
+  const currentDate = new Date(); // on crée un nouvel objet Date qui représente la date actuelle
+  const limitDate = new Date('1900-01-01'); // on crée une date limite en-dessous de laquelle la date sera considérée comme trop ancienne
 
   if (firstName === "") {
     errorFirstname.textContent = "Veuillez renseigner votre prénom svp";
@@ -110,6 +109,20 @@ const validate = () => {
     errorEmail.textContent = "";
     inputEmail.style.border = "2px solid #3BE282";
   }
+
+  if (birthdate === "" || dateValue > currentDate) {
+    errorBirthdate.textContent = "Veuillez renseigner une date de naissance valide svp";
+    inputBirthdate.style.border = "2px solid red";
+    valid = false;
+  } else if (dateValue < limitDate) {
+    errorBirthdate.textContent = "Allons, vous n'êtes pas si vieux ! Votre vraie date de naissance svp";
+    inputBirthdate.style.border = "2px solid red";
+    valid = false;
+  } else {
+    errorBirthdate.textContent = "";
+    inputBirthdate.style.border = "2px solid #3BE282";
+  }
+
   return valid;
 };
 
