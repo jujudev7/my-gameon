@@ -54,17 +54,20 @@ const validate = () => {
   const lastName = document.querySelector("#lastname").value.trim();
   const email = document.querySelector("#email").value.trim();
   const birthdate = document.querySelector("#birthdate").value.trim();
+  const quantity = document.querySelector("#quantity").value.trim();
   // const checkbox1 = document.querySelector("#checkbox1");
 
   const errorFirstname = document.querySelector(".error-firstname");
   const errorLastname = document.querySelector(".error-lastname");
   const errorEmail = document.querySelector(".error-email");
   const errorBirthdate = document.querySelector(".error-birthdate");
+  const errorQuantity = document.querySelector(".error-quantity");
 
   const inputFirstname = document.querySelector("#firstname");
   const inputLastname = document.querySelector("#lastname");
   const inputEmail = document.querySelector("#email");
   const inputBirthdate = document.querySelector("#birthdate");
+  const inputQuantity = document.querySelector("#quantity");
 
   const dateValue = new Date(birthdate); // on transforme la chaîne de caractères au format ISO 8601 (ex: "2023-04-21" pour le 21 avril 2023) en un objet Date
   const currentDate = new Date(); // on crée un nouvel objet Date qui représente la date actuelle
@@ -121,6 +124,19 @@ const validate = () => {
   } else {
     errorBirthdate.textContent = "";
     inputBirthdate.style.border = "2px solid #3BE282";
+  }
+
+  if (quantity === "") {
+    errorQuantity.textContent = "Veuillez indiquer le nombre de tournois auxquels vous avez participé svp";
+    inputQuantity.style.border = "2px solid red";
+    valid = false;
+  } else if (quantity < 0 || quantity > 99) {
+    errorQuantity.textContent = "Veuillez renseigner un nombre entre 0 et 99 svp";
+    inputQuantity.style.border = "2px solid red";
+    valid = false;
+  } else {
+    errorQuantity.textContent = "";
+    inputQuantity.style.border = "2px solid #3BE282";
   }
 
   return valid;
