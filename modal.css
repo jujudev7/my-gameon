@@ -250,7 +250,8 @@ input[data-error]::after {
 .error-lastname,
 .error-email,
 .error-birthdate,
-.error-quantity {
+.error-quantity,
+.error-location {
   font-size: 0.5em;
   color: red;
   transition: 0.3s;

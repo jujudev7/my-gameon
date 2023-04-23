@@ -50,11 +50,16 @@ const isValidEmail = (email) => {
 
 const validate = () => {
   let valid = true;
+
   const firstName = document.querySelector("#firstname").value.trim();
   const lastName = document.querySelector("#lastname").value.trim();
   const email = document.querySelector("#email").value.trim();
   const birthdate = document.querySelector("#birthdate").value.trim();
   const quantity = document.querySelector("#quantity").value.trim();
+  const locations = document.getElementsByName("location");
+
+  let selectedLocation = false;
+
   // const checkbox1 = document.querySelector("#checkbox1");
 
   const errorFirstname = document.querySelector(".error-firstname");
@@ -62,16 +67,18 @@ const validate = () => {
   const errorEmail = document.querySelector(".error-email");
   const errorBirthdate = document.querySelector(".error-birthdate");
   const errorQuantity = document.querySelector(".error-quantity");
+  const errorLocation = document.querySelector(".error-location");
 
   const inputFirstname = document.querySelector("#firstname");
   const inputLastname = document.querySelector("#lastname");
   const inputEmail = document.querySelector("#email");
   const inputBirthdate = document.querySelector("#birthdate");
   const inputQuantity = document.querySelector("#quantity");
+  const checkboxIcons = document.querySelectorAll(".checkbox-icon");
 
   const dateValue = new Date(birthdate); // on transforme la chaîne de caractères au format ISO 8601 (ex: "2023-04-21" pour le 21 avril 2023) en un objet Date
   const currentDate = new Date(); // on crée un nouvel objet Date qui représente la date actuelle
-  const limitDate = new Date('1900-01-01'); // on crée une date limite en-dessous de laquelle la date sera considérée comme trop ancienne
+  const limitDate = new Date("1900-01-01"); // on crée une date limite en-dessous de laquelle la date sera considérée comme trop ancienne
 
   if (firstName === "") {
     errorFirstname.textContent = "Veuillez renseigner votre prénom svp";
@@ -105,7 +112,8 @@ const validate = () => {
     inputEmail.style.border = "2px solid red";
     valid = false;
   } else if (!isValidEmail(email)) {
-    errorEmail.textContent = "Veuillez renseigner une adresse e-mail valide svp";
+    errorEmail.textContent =
+      "Veuillez renseigner une adresse e-mail valide svp";
     inputEmail.style.border = "2px solid red";
     valid = false;
   } else {
@@ -114,11 +122,13 @@ const validate = () => {
   }
 
   if (birthdate === "" || dateValue > currentDate) {
-    errorBirthdate.textContent = "Veuillez renseigner une date de naissance valide svp";
+    errorBirthdate.textContent =
+      "Veuillez renseigner une date de naissance valide svp";
     inputBirthdate.style.border = "2px solid red";
     valid = false;
   } else if (dateValue < limitDate) {
-    errorBirthdate.textContent = "Allons, vous n'êtes pas si vieux ! Votre vraie date de naissance svp";
+    errorBirthdate.textContent =
+      "Allons, vous n'êtes pas si vieux ! Votre vraie date de naissance svp";
     inputBirthdate.style.border = "2px solid red";
     valid = false;
   } else {
@@ -127,11 +137,13 @@ const validate = () => {
   }
 
   if (quantity === "") {
-    errorQuantity.textContent = "Veuillez indiquer le nombre de tournois auxquels vous avez participé svp";
+    errorQuantity.textContent =
+      "Veuillez indiquer le nombre de tournois auxquels vous avez participé svp";
     inputQuantity.style.border = "2px solid red";
     valid = false;
   } else if (quantity < 0 || quantity > 99) {
-    errorQuantity.textContent = "Veuillez renseigner un nombre entre 0 et 99 svp";
+    errorQuantity.textContent =
+      "Veuillez renseigner un nombre entre 0 et 99 svp";
     inputQuantity.style.border = "2px solid red";
     valid = false;
   } else {
@@ -139,53 +151,25 @@ const validate = () => {
     inputQuantity.style.border = "2px solid #3BE282";
   }
 
+  for (let i = 0; i < locations.length; i++) {
+    if (locations[i].checked) {
+      selectedLocation = true;
+      break;
+    }
+  }
+
+  if (!selectedLocation) {
+    for (let i = 0; i < checkboxIcons.length; i++) {
+      checkboxIcons[i].style.border = "2px solid red";
+      errorLocation.innerHTML = "Veuillez sélectionner une ville svp";
+    }
+    return false;
+  } else {
+    for (let i = 0; i < checkboxIcons.length; i++) {
+      errorLocation.innerHTML = "";
+      checkboxIcons[i].style.border = "";
+    }
+  }
+
   return valid;
 };
-
-//   if (email === "") {
-//     document.querySelector(".email-error").innerHTML =
-//       "Veuillez renseigner votre e-mail svp";
-//   } else if (!isValidEmail(email)) {
-//     document.querySelector(".email-error").innerHTML =
-//       "Veuillez renseigner une adresse e-mail valide svp";
-//   }
-
-//   if (quantity === "") {
-//     document.querySelector(".quantity-error").innerHTML =
-//       "Veuillez indiquer le nombre de tournoi auxquels vous avez participé";
-//   } else if (
-//     parseInt(quantity) < 0 ||
-//     parseInt(quantity) > 99) {
-//     document.querySelector(".quantity-error").innerHTML =
-//       "Veuillez renseigner un nombre compris entre 0 et 99 svp";
-//   }
-// // }  else if (isNaN(quantity)) {
-// //   document.querySelector(".quantity-error").innerHTML =
-// //     "Veuillez renseigner un nombre svp";
-
-// // console.log(quantity)
-
-//   // Vérifier si la date n'est pas vide
-//   if (birthdate === "") {
-//     document.querySelector(".birthdate-error").innerHTML = "Veuillez entrer une date de naissance valide svp";
-//     // return false;
-//   }
-
-//   const radios = document.getElementsByName("location");
-//   const formIsValid = false;
-
-//   for (var i = 0; i < radios.length; i++) {
-//     if (radios[i].checked) {
-//       formIsValid = true; // au moins un bouton radio est sélectionné
-//       break;
-//     }
-//   }
-
-//   if (!formIsValid) {
-//     document.querySelector(".location-error").innerHTML =
-//       "Veuillez choisir une ville svp";
-//   }
-
-//   if (!checkbox1.checked) {
-//     document.querySelector(".checkbox1-error").innerHTML ="Veuillez accepter les conditions d'utilisation svp";
-//   }
