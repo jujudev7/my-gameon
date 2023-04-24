@@ -251,7 +251,8 @@ input[data-error]::after {
 .error-email,
 .error-birthdate,
 .error-quantity,
-.error-location {
+.error-location,
+.error-checkbox1 {
   font-size: 0.5em;
   color: red;
   transition: 0.3s;

@@ -57,6 +57,7 @@ const validate = () => {
   const birthdate = document.querySelector("#birthdate").value.trim();
   const quantity = document.querySelector("#quantity").value.trim();
   const locations = document.getElementsByName("location");
+  const checkbox1 = document.querySelector("#checkbox1");
 
   let selectedLocation = false;
 
@@ -68,13 +69,15 @@ const validate = () => {
   const errorBirthdate = document.querySelector(".error-birthdate");
   const errorQuantity = document.querySelector(".error-quantity");
   const errorLocation = document.querySelector(".error-location");
+  const errorCheckbox1 = document.querySelector(".error-checkbox1");
 
   const inputFirstname = document.querySelector("#firstname");
   const inputLastname = document.querySelector("#lastname");
   const inputEmail = document.querySelector("#email");
   const inputBirthdate = document.querySelector("#birthdate");
   const inputQuantity = document.querySelector("#quantity");
-  const checkboxIcons = document.querySelectorAll(".checkbox-icon");
+  const checkboxIcons = document.querySelectorAll(".location .checkbox-icon");
+  const inputCheckbox1 = document.querySelector(".cgu .checkbox-icon");
 
   const dateValue = new Date(birthdate); // on transforme la chaîne de caractères au format ISO 8601 (ex: "2023-04-21" pour le 21 avril 2023) en un objet Date
   const currentDate = new Date(); // on crée un nouvel objet Date qui représente la date actuelle
@@ -149,6 +152,16 @@ const validate = () => {
   } else {
     errorQuantity.textContent = "";
     inputQuantity.style.border = "2px solid #3BE282";
+  }
+
+  if (!checkbox1.checked) {
+    errorCheckbox1.textContent =
+      "Veuillez accepter les conditions d'utilisation svp";
+    inputCheckbox1.style.border = "2px solid red";
+    valid = false;
+  } else {
+    errorCheckbox1.textContent = "";
+    inputCheckbox1.style.border = "2px solid #3BE282";
   }
 
   for (let i = 0; i < locations.length; i++) {
