@@ -9,12 +9,13 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelector(".modal-btn");
+const modalBtn = document.querySelectorAll(".modal-btn");
 const modalClose = document.querySelector(".close"); // On sélectionne l'élément HTML qui représente le bouton de fermeture de la modale à l'aide de la méthode querySelector()
 const formData = document.querySelectorAll(".formData");
 
 // launch modal event
-modalBtn.addEventListener("click", launchModal);
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); // On ajoute un event listener sur les 2 boutons de la 'hero section' (1 bouton est visible et l'autre non en fonction de la résolution de l'écran < 768px >)
+// La fonction callback est appelée au clique et permet d'afficher la modale, qui change son display 'none' en display 'block'
 
 // launch modal form
 function launchModal() {
