@@ -12,6 +12,10 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalClose = document.querySelector(".close"); // On sélectionne l'élément HTML qui représente le bouton de fermeture de la modale à l'aide de la méthode querySelector()
 const formData = document.querySelectorAll(".formData");
+const form = document.getElementById("form");
+const modalConfirmation = document.querySelector(".bground-confirmation");
+const modalCloseConfirmation = document.querySelector(".bground-confirmation .close"); // On sélectionne l'élément HTML qui représente le bouton de fermeture de la modale à l'aide de la méthode querySelector()
+const modalCloseBtnConfirmation = document.querySelector(".close-btn-confirmation"); // On sélectionne le bouton "Fermer" de la modale de confirmation
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); // On ajoute un event listener sur les 2 boutons de la 'hero section' (1 bouton est visible et l'autre non en fonction de la résolution de l'écran < 768px >)
@@ -25,15 +29,26 @@ function launchModal() {
 // close modal event
 modalClose.addEventListener("click", closeModal); // On ajoute un événement de clic sur le bouton de fermeture en utilisant la méthode addEventListener()
 
+// close modal confirmation event
+modalCloseConfirmation.addEventListener("click", closeModalConfirmation); // On ajoute un événement de clic sur le bouton de fermeture en utilisant la méthode addEventListener()
+modalCloseBtnConfirmation.addEventListener("click", closeModalConfirmation); // On ajoute un événement de clic sur le bouton de fermeture en utilisant la méthode addEventListener()
+
 // close modal function
 function closeModal() {
   modalbg.style.display = "none";
+  // modalConfirmation.style.display = "none";
 } // On créé une fonction closeModal() qui modifie la propriété display de l'élément HTML représentant la modale pour la masquer en utilisant la valeur none
 
-const form = document.getElementById("form");
+// close modal function
+function closeModalConfirmation() {
+  modalConfirmation.style.display = "none";
+} // On créé une fonction closeModal() qui modifie la propriété display de l'élément HTML représentant la modale pour la masquer en utilisant la valeur none
+
 form.addEventListener("submit", (event) => {
-  if (!validate()) {
-    event.preventDefault(); // empêche l'envoi du formulaire si les champs ne sont pas valides
+  event.preventDefault(); // empêche l'envoi du formulaire si les champs ne sont pas valides
+  if (validate()) {
+    modalbg.style.display = "none";
+    modalConfirmation.style.display = "block";
   }
 });
 

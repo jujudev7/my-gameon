@@ -136,7 +136,8 @@ main {
   font-size: 16px;
 }
 
-.bground {
+.bground,
+.bground-confirmation {
   display: none;
   position: fixed;
   z-index: 1;
@@ -146,6 +147,25 @@ main {
   width: 100%;
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
+}
+
+.bground-confirmation .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+  text-align: center;
+  justify-content: center;
+}
+
+.bground-confirmation p {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.close-btn-confirmation {
+  bottom: -100px;
+  position: relative;
 }
 
 .content {
@@ -274,7 +294,7 @@ input[data-error]::after {
   transition: 0.3s;
   opacity: 0;
 }
-input[type=radio]:checked + label .checkbox-icon {
+input[type="radio"]:checked + label .checkbox-icon {
   border: 2px solid #279e7a;
 }
 .checkbox-input {
@@ -558,6 +578,14 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+  
+  .content {
+    margin-top: 17%;
+  }
+  .bground {
+    display: none;
+  }
+
   .topnav a {
     display: none;
   }
@@ -592,6 +620,7 @@ footer {
     background: #fff;
     color: #000;
     padding: 0;
+    min-width: unset;
   }
   .hero-content::after {
     content: unset;
@@ -605,7 +634,7 @@ footer {
   }
   .hero-text {
     width: unset;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-top: 40px;
   }
   .hero-img img {
@@ -620,11 +649,15 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
-    position:relative;
+    position: relative;
   }
 }
 
 @media screen and (max-width: 540px) {
+  .header-logo > img {
+    position: absolute;
+    top: 8px;
+  }
   .topnav {
     display: flex;
     flex-direction: row;
