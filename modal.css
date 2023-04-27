@@ -594,7 +594,7 @@ footer {
     display: block;
     color: red;
   }
-  .topnav a.icon:hover {
+  .topnav a.icon:hover, .topnav a.icon:focus {
     background-color: #ff0000;
     color: #ffffff;
     border-radius: 15px;
@@ -654,10 +654,6 @@ footer {
 }
 
 @media screen and (max-width: 540px) {
-  .header-logo > img {
-    position: absolute;
-    top: 8px;
-  }
   .topnav {
     display: flex;
     flex-direction: row;
@@ -670,6 +666,5 @@ footer {
   .topnav a.icon {
     float: right;
     display: block;
-    /* margin-top: -15px; */
   }
 }
