@@ -14,8 +14,12 @@ const modalClose = document.querySelector(".close"); // On sélectionne l'élém
 const formData = document.querySelectorAll(".formData");
 const form = document.getElementById("form");
 const modalConfirmation = document.querySelector(".bground-confirmation");
-const modalCloseConfirmation = document.querySelector(".bground-confirmation .close"); // On sélectionne l'élément HTML qui représente le bouton de fermeture de la modale à l'aide de la méthode querySelector()
-const modalCloseBtnConfirmation = document.querySelector(".close-btn-confirmation"); // On sélectionne le bouton "Fermer" de la modale de confirmation
+const modalCloseConfirmation = document.querySelector(
+  ".bground-confirmation .close"
+); // On sélectionne l'élément HTML qui représente le bouton de fermeture de la modale à l'aide de la méthode querySelector()
+const modalCloseBtnConfirmation = document.querySelector(
+  ".close-btn-confirmation"
+); // On sélectionne le bouton "Fermer" de la modale de confirmation
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); // On ajoute un event listener sur les 2 boutons de la 'hero section' (1 bouton est visible et l'autre non en fonction de la résolution de l'écran < 768px >)
@@ -52,18 +56,6 @@ form.addEventListener("submit", (event) => {
   }
 });
 
-// form.addEventListener("submit", (event) => {
-//   event.preventDefault();
-
-//   validate();
-// });
-
-const isValidEmail = (email) => {
-  const regex =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return regex.test(String(email).toLowerCase());
-};
-
 const validate = () => {
   let valid = true;
 
@@ -76,8 +68,6 @@ const validate = () => {
   const checkbox1 = document.querySelector("#checkbox1");
 
   let selectedLocation = false;
-
-  // const checkbox1 = document.querySelector("#checkbox1");
 
   const errorFirstname = document.querySelector(".error-firstname");
   const errorLastname = document.querySelector(".error-lastname");
@@ -99,6 +89,14 @@ const validate = () => {
   const currentDate = new Date(); // on crée un nouvel objet Date qui représente la date actuelle
   const limitDate = new Date("1900-01-01"); // on crée une date limite en-dessous de laquelle la date sera considérée comme trop ancienne
 
+  const regexName = /^[a-zÀ-ÿ]([a-zÀ-ÿ ,.'-]+)?[a-zÀ-ÿ\.]$/i; // on crée une regex pour vérifier les Nom/Prénom. Les accents sont acceptés, mais les 1er et dernier caractères ne peuvent pas être un nombre ou un caractère spécial (possibilité de point final, ex: Neymar Jr.)
+
+  const isValidEmail = (email) => {
+    const regex =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regex.test(String(email).toLowerCase());
+  }; // on vérifie si l'email est valide grâce à un pattern sophistiqué, qui vérifie notamment la présence d'un arobase et d'un nom de domaine
+
   if (firstName === "") {
     errorFirstname.textContent = "Veuillez renseigner votre prénom svp";
     inputFirstname.style.border = "2px solid red";
@@ -106,6 +104,12 @@ const validate = () => {
   } else if (firstName.length < 2) {
     errorFirstname.textContent =
       "Le prénom doit contenir au moins 2 caractères !";
+    inputFirstname.style.border = "2px solid red";
+    valid = false;
+    // ^[a-z][a-z ,.'-]+[a-z\.]$
+  // } else if (!/^[a-zÀ-ÿ]([a-zÀ-ÿ ,.'-]+)?[a-zÀ-ÿ\.]$/i.test(firstName)) {
+  } else if (!regexName.test(firstName)) {
+    errorFirstname.textContent = "Veuillez renseigner un prénom valide svp";
     inputFirstname.style.border = "2px solid red";
     valid = false;
   } else {
@@ -121,13 +125,17 @@ const validate = () => {
     errorLastname.textContent = "Le nom doit contenir au moins 2 caractères !";
     inputLastname.style.border = "2px solid red";
     valid = false;
+  } else if (!regexName.test(lastName)) {
+    errorLastname.textContent = "Veuillez renseigner un nom valide svp";
+    inputLastname.style.border = "2px solid red";
+    valid = false;
   } else {
     errorLastname.textContent = "";
     inputLastname.style.border = "2px solid #3BE282";
   }
 
   if (email === "") {
-    errorEmail.textContent = "Veuillez renseigner votre email svp";
+    errorEmail.textContent = "Veuillez renseigner votre adresse e-mail svp";
     inputEmail.style.border = "2px solid red";
     valid = false;
   } else if (!isValidEmail(email)) {
