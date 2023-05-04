@@ -1,10 +1,12 @@
-** GameOn Project 🕹️
+# GameOn Project 🕹️
 
-GameOn is a website specialized in conferences and video games competitions
+GameOn is a website specialized in conferences and video games competitions.
+
+Goal : Create a landing page with a form registration in Vanilla Javascript.
 
 Forked link : https://github.com/OpenClassrooms-Student-Center/GameOn-website-FR/ 
 
-* Project's Objectives 🎯
+## Project's Objectives 🎯
 
 - Validation inputs in JavaScript
 
@@ -14,10 +16,8 @@ Forked link : https://github.com/OpenClassrooms-Student-Center/GameOn-website-FR
 
 - Responsive design
 
-- Create confirmation screen upon successful validation of form
-
 - Testing features, input, responsive of the project
 
-* Demo 🔗
+## Demo 🔗
 
 ▶️
