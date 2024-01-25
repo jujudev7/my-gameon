@@ -20,4 +20,4 @@ Forked link : https://github.com/OpenClassrooms-Student-Center/GameOn-website-FR
 
 ## Demo 🔗
 
-▶️
+▶️ https://jujudev7.github.io/GameOn-website-FR/
